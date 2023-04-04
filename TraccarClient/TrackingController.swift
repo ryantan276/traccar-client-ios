@@ -64,7 +64,7 @@ class TrackingController: NSObject, PositionProviderDelegate, NetworkManagerDele
     }
 
     func didUpdate(position: Position) {
-        StatusViewController.addMessage(NSLocalizedString("Location update", comment: ""))
+        print("Location update", position)
         if buffer {
             write(position)
         } else {
@@ -73,7 +73,7 @@ class TrackingController: NSObject, PositionProviderDelegate, NetworkManagerDele
     }
     
     func didUpdateNetwork(online: Bool) {
-        StatusViewController.addMessage(NSLocalizedString("Connectivity change", comment: ""))
+        print("Connectivity change:", online)
         if !self.online && online {
             read()
         }
@@ -120,18 +120,19 @@ class TrackingController: NSObject, PositionProviderDelegate, NetworkManagerDele
         if let request = ProtocolFormatter.formatPostion(position, url: url) {
             RequestManager.sendRequest(request, completionHandler: {(_ success: Bool) -> Void in
                 if success {
+                    print("Send success: ",position)
                     if self.buffer {
                         self.delete(position)
                     }
                 } else {
-                    StatusViewController.addMessage(NSLocalizedString("Send failed", comment: ""))
+                    print("Send failed: ",position)
                     if self.buffer {
                         self.retry()
                     }
                 }
             })
         } else {
-            StatusViewController.addMessage(NSLocalizedString("Send failed", comment: ""))
+            print("Send failed & retried")
             if buffer {
                 self.retry()
             }

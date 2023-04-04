@@ -32,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>http://demo.traccar.org:5055</string>
+			<string>http://track.antk.co:5055</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
@@ -48,7 +48,7 @@
 			<key>Key</key>
 			<string>accuracy_preference</string>
 			<key>DefaultValue</key>
-			<string>medium</string>
+			<string>High</string>
 			<key>Titles</key>
 			<array>
 				<string>High</string>
@@ -66,7 +66,7 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 			<key>DefaultValue</key>
-			<string>300</string>
+			<string>30</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
@@ -78,7 +78,7 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 			<key>DefaultValue</key>
-			<string></string>
+			<string>0.1</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
@@ -90,7 +90,7 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 			<key>DefaultValue</key>
-			<string></string>
+			<string>0.1</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
@@ -98,16 +98,16 @@
 			<key>Key</key>
 			<string>angle_preference</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Offline buffering</string>
-            <key>Key</key>
-            <string>buffer_preference</string>
-            <key>DefaultValue</key>
-            <true/>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Offline buffering</string>
+			<key>Key</key>
+			<string>buffer_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
 	</array>
 </dict>
 </plist>

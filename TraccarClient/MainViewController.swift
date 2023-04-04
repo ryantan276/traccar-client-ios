@@ -50,10 +50,10 @@ class MainViewController: IASKAppSettingsViewController {
         alert.addAction(defaultAction)
         present(alert, animated: true)
     }
-
+    
     func didChangeSetting(_ notification: Notification) {
         if let status = notification.userInfo?["service_status_preference"] as? Bool {
-            if status && AppDelegate.instance.trackingController == nil {
+            if status && SDAppDelegate.share?.trackingController == nil {
                 let userDefaults = UserDefaults.standard
                 let url = userDefaults.string(forKey: "server_url_preference")
                 let frequency = userDefaults.integer(forKey: "frequency_preference")
@@ -66,15 +66,16 @@ class MainViewController: IASKAppSettingsViewController {
                     self.showError("Invalid frequency value")
                 } else {
                     StatusViewController.addMessage(NSLocalizedString("Service created", comment: ""))
-                    AppDelegate.instance.trackingController = TrackingController()
-                    AppDelegate.instance.trackingController?.start()
+                    SDAppDelegate.share?.trackingController = TrackingController()
+                    SDAppDelegate.share?.trackingController?.start()
                 }
-            } else if !status && AppDelegate.instance.trackingController != nil {
+            } else if !status && SDAppDelegate.share?.trackingController != nil {
                 StatusViewController.addMessage(NSLocalizedString("Service destroyed", comment: ""))
-                AppDelegate.instance.trackingController?.stop()
-                AppDelegate.instance.trackingController = nil
+                SDAppDelegate.share?.trackingController?.stop()
+                SDAppDelegate.share?.trackingController = nil
             }
         }
     }
     
 }
+ 

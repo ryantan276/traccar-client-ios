@@ -16,8 +16,8 @@
 
 import Foundation
 
-public class RequestManager: NSObject {
-    
+extension RequestManager {
+
     public static func sendRequest(_ url: URL, completionHandler handler: @escaping (Bool) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
