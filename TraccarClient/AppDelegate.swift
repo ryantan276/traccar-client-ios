@@ -13,12 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-/*
+
 import UIKit
 import CoreData
 import Firebase
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PositionProviderDelegate {
     
     var window: UIWindow?
@@ -175,4 +175,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PositionProviderDelegate 
 
 }
 
-*/

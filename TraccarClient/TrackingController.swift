@@ -89,13 +89,15 @@ class TrackingController: NSObject, PositionProviderDelegate, NetworkManagerDele
     //
     
     func write(_ position: Position) {
-        let context = DatabaseHelper().managedObjectContext
-        if context.hasChanges {
-            try? context.save()
-        }
-        if self.online && self.waiting {
-            read()
-            self.waiting = false
+        if (position.deviceId != nil && position.deviceId!.length > 3){
+            let context = DatabaseHelper().managedObjectContext
+            if context.hasChanges {
+                try? context.save()
+            }
+            if self.online && self.waiting {
+                read()
+                self.waiting = false
+            }
         }
     }
     

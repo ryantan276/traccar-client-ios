@@ -28,7 +28,7 @@ class PositionProvider: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager
     var lastLocation: CLLocation?
 
-    var deviceId: String
+    var deviceId: String!
     var interval: Double
     var distance: Double
     var angle: Double
@@ -37,7 +37,7 @@ class PositionProvider: NSObject, CLLocationManagerDelegate {
     
     override init() {
         let userDefaults = UserDefaults.standard
-        deviceId = userDefaults.string(forKey: "device_id_preference")!
+        deviceId = userDefaults.string(forKey: "device_id_preference") ?? "0"
         interval = userDefaults.double(forKey: "frequency_preference")
         distance = userDefaults.double(forKey: "distance_preference")
         angle = userDefaults.double(forKey: "angle_preference")
